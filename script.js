@@ -1,4 +1,4 @@
-const arr = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
 // first attempt making a saperate array and then sotring the second array and chaning the cpcordinate index to the first array
 // let arr2 =[]
@@ -67,3 +67,13 @@ const arr = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Nor
 
 //----------------
 //third attemp watching the video
+
+function strip (bandName){
+    return bandName.replace (/^(a |an |the )/i,"").trim();
+}
+
+const sortedbands = bands.sort((a,b)=> strip(a) > strip(b) ? 1 : -1);
+
+document.querySelector("#bands").innerHTML = sortedbands.map(band=>`<li>${band}</li>`).join("")
+
+console.log(sortedbands)
